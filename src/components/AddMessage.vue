@@ -62,9 +62,4 @@
     textarea {
         margin: auto;
     }
-    .loader > div {
-    border-width: 0;
-    border-color: white;
-    box-shadow: 0 0 0 white;
-    }
 </style>
