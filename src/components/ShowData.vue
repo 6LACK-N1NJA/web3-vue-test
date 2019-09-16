@@ -4,7 +4,7 @@
             <span class="wallet">{{wallet}}</span>
         </span>
         <div class="messages">
-            <span v-for="message in messages" class="md-body-1">{{message}}<br/></span>
+            <span v-for="message in messages" v-bind:key="message" class="md-body-1">{{message}}<br/></span>
         </div>
     </div>
 </template>

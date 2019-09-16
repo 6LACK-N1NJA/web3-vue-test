@@ -27,13 +27,13 @@
     },
     beforeCreate() {
       if(window.ethereum) {
-        window.web3 = new Web3(ethereum);
+        window.web3 = new Web3(window.ethereum);
         try {
           const store = this.$store;
-          ethereum.enable();
-          web3.eth.getAccounts((err, acc) => {
+          window.ethereum.enable();
+          window.web3.eth.getAccounts((err, acc) => {
             if(err !== null) {
-              console.log(err);
+              new Error(err);
             } else {
               this.$store.commit('setWallet', acc[0])
             }

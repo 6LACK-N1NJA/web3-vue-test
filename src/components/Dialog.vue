@@ -2,9 +2,6 @@
     <md-content class="dialogCard">
         <div class="md-subheader">{{dialogText}}</div>
         <md-button class="button" href="https://metamask.io">GO</md-button>
-        <template v-for="button in buttons">
-
-        </template>
     </md-content>
 </template>
 
