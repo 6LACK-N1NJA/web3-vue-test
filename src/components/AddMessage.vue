@@ -29,22 +29,16 @@
         },
         methods: {
             addMessage: function () {
-                const messageToHex = window.web3.utils.toHex(this.textarea);
-                const transaction = {
-                    from: this.$store.state.wallet,
-                    gas: '210000',
-                    to: '0xdEa9E461B715311bF49c0678842F9e2CEcAc91d7',
-                    value: 0,
-                    data: messageToHex
-                };
                 this.isLoading = true;
-                window.web3.eth.sendTransaction(transaction)
-                    .then((t) => window.web3.eth.getTransaction(t.transactionHash))
-                    .then((tr) => {
-                        const message = window.web3.utils.hexToUtf8(tr.input);
-                        this.$store.commit('addMessage', message);
-                        this.isLoading = false;
-                    });
+                window.web3.eth.personal.sign(this.textarea, this.$store.state.wallet, (error, data) => {
+                    if(error !== null) {
+                        new Error(error);
+                        alert(error)
+                    } else {
+                        this.$store.commit('addMessage', data);
+                    }
+                    this.isLoading = false;
+                });
                 this.textarea = '';
             }
         },

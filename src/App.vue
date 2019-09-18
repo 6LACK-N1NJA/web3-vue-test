@@ -3,7 +3,6 @@
     <ShowData/>
     <AddMessage/>
     <Dialog v-if="notMetamask()" dialogText="To work with app you need MetaMask plugin"/>
-    <Dialog v-if="!this.$store.state.isAccessed" dialogText="Please accept permission to your public wallet"/>
   </div>
 </template>
 
